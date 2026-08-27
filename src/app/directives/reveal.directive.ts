@@ -1,10 +1,4 @@
 import { Directive, ElementRef, OnDestroy, AfterViewInit, Renderer2 } from '@angular/core';
-
-/**
- * Usage: <div appReveal class="reveal">...</div>
- * Adds the `in` class the first time the element scrolls into view,
- * matching the fade/slide-up reveal from the original vanilla build.
- */
 @Directive({
   selector: '[appReveal]',
   standalone: true
