@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 type Language = 'en' | 'ar';
@@ -7,8 +7,12 @@ type Language = 'en' | 'ar';
   providedIn: 'root'
 })
 export class LanguageService {
+  readonly language = signal<Language>(
+    localStorage.getItem('lang') === 'ar' ? 'ar' : 'en'
+  );
+
   private currentLanguage = new BehaviorSubject<Language>(
-    (localStorage.getItem('lang') as Language) || 'en'
+    this.language()
   );
 
   language$ = this.currentLanguage.asObservable();
@@ -18,10 +22,11 @@ export class LanguageService {
   }
 
   getCurrentLanguage(): Language {
-    return this.currentLanguage.value;
+    return this.language();
   }
 
   setLanguage(lang: Language): void {
+    this.language.set(lang);
     this.currentLanguage.next(lang);
     localStorage.setItem('lang', lang);
     this.applyLanguage(lang);
@@ -30,13 +35,11 @@ export class LanguageService {
   private applyLanguage(lang: Language): void {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    if (lang === 'ar') {
-      document.documentElement.style.fontFamily = '"Tajawal", sans-serif';
-    }
+    document.documentElement.style.fontFamily = lang === 'ar' ? '"Tajawal", sans-serif' : '';
   }
 
   toggleLanguage(): void {
-    const newLang = this.currentLanguage.value === 'en' ? 'ar' : 'en';
+    const newLang = this.language() === 'en' ? 'ar' : 'en';
     this.setLanguage(newLang);
   }
 }

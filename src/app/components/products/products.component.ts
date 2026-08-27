@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RevealDirective } from '../../directives/reveal.directive';
+import { LanguageService } from '../../services/language.service';
+import { translations } from '../../i18n/translations';
 
 interface Product {
+  key: 'sunrise' | 'house' | 'midnight';
   name: string;
   tag: string;
   description: string;
@@ -12,6 +15,8 @@ interface Product {
   added: boolean;
 }
 
+type Language = 'en' | 'ar';
+
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -20,8 +25,17 @@ interface Product {
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
+  t = translations;
+
+  constructor(private languageService: LanguageService) {}
+
+  get currentLanguage(): Language {
+    return this.languageService.language();
+  }
+
   readonly products: Product[] = [
     {
+      key: 'sunrise',
       name: 'Sunrise Ethiopia',
       tag: 'Light Roast',
       description: 'Bright and floral with notes of bergamot, peach, and honey. A washed-process single origin.',
@@ -31,6 +45,7 @@ export class ProductsComponent {
       added: false
     },
     {
+      key: 'house',
       name: 'House Blend No.3',
       tag: 'Medium Roast',
       description: 'Our signature everyday blend — chocolate, toasted hazelnut, and a soft caramel finish.',
@@ -40,6 +55,7 @@ export class ProductsComponent {
       added: false
     },
     {
+      key: 'midnight',
       name: 'Midnight Sumatra',
       tag: 'Dark Roast',
       description: 'Bold, earthy, and full-bodied with dark cocoa and a low, smoky finish.',

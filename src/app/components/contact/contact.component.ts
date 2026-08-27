@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
@@ -13,7 +13,7 @@ type Language = 'en' | 'ar';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   formData = {
     name: '',
     email: '',
@@ -23,16 +23,12 @@ export class ContactComponent implements OnInit {
   formSubmitted = false;
   submitted = false;
   showSuccess = false;
-  currentLanguage: Language = 'en';
   t = translations;
 
   constructor(private languageService: LanguageService) {}
 
-  ngOnInit(): void {
-    this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.languageService.language$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+  get currentLanguage(): Language {
+    return this.languageService.language();
   }
 
   onSubmit(): void {

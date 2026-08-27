@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { LanguageService } from '../../services/language.service';
@@ -6,7 +6,7 @@ import { translations } from '../../i18n/translations';
 
 interface Stat {
   value: string;
-  label: string;
+  label: 'years' | 'farms' | 'cups';
 }
 
 type Language = 'en' | 'ar';
@@ -18,22 +18,18 @@ type Language = 'en' | 'ar';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
   readonly stats: Stat[] = [
-    { value: '9+', label: 'Years Roasting' },
-    { value: '14', label: 'Origin Farms' },
-    { value: '50k+', label: 'Cups Served' }
+    { value: '9+', label: 'years' },
+    { value: '14', label: 'farms' },
+    { value: '50k+', label: 'cups' }
   ];
 
-  currentLanguage: Language = 'en';
   t = translations;
 
   constructor(private languageService: LanguageService) {}
 
-  ngOnInit(): void {
-    this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.languageService.language$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+  get currentLanguage(): Language {
+    return this.languageService.language();
   }
 }

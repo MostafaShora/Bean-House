@@ -1,8 +1,8 @@
 <section class="products" id="products">
   <div class="container">
     <div class="section-head reveal" appReveal>
-      <p class="eyebrow">Menu</p>
-      <h2>Our Blends</h2>
+      <p class="eyebrow">{{ t[currentLanguage].products.eyebrow }}</p>
+      <h2>{{ t[currentLanguage].products.title }}</h2>
     </div>
 
     <div class="product-grid">
@@ -11,13 +11,13 @@
           <div class="product-media">
             <img
               [src]="product.img"
-              [alt]="product.alt"
+                [alt]="product.alt"
               (error)="onImgError($event)" />
-            <span class="product-tag">{{ product.tag }}</span>
+            <span class="product-tag">{{ t[currentLanguage].products.items[product.key].tag }}</span>
           </div>
           <div class="product-body">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description }}</p>
+            <h3>{{ t[currentLanguage].products.items[product.key].name }}</h3>
+            <p>{{ t[currentLanguage].products.items[product.key].description }}</p>
           </div>
           <div class="product-footer">
             <span class="price">{{ product.price }}</span>
@@ -25,7 +25,7 @@
               class="add-btn"
               [class.added]="product.added"
               (click)="addToCart(product)"
-              aria-label="Add to cart">
+              [attr.aria-label]="t[currentLanguage].products.addBtn">
               {{ product.added ? '✓' : '+' }}
             </button>
           </div>

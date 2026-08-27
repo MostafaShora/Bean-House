@@ -20,17 +20,51 @@ export const translations = {
       eyebrow: 'Our Origin',
       title: 'Crafted for Coffee Lovers',
       description: 'Since 2018, Bean House has been on a mission to bring exceptional coffee to your table. We partner directly with farmers, ensuring fair trade practices and the highest quality beans.',
-      signatureText: 'Every cup tells a story of craftsmanship, sustainability, and passion.'
+      signatureText: 'Every cup tells a story of craftsmanship, sustainability, and passion.',
+      stats: {
+        years: 'Years Roasting',
+        farms: 'Origin Farms',
+        cups: 'Cups Served'
+      },
+      directTrade: 'Direct Trade',
+      sourcing: 'Sourced from 14 partner farms across 3 continents.'
     },
     products: {
       eyebrow: 'Menu',
       title: 'Our Blends',
       viewBtn: 'View Details',
-      addBtn: 'Add to Cart'
+      addBtn: 'Add to Cart',
+      items: {
+        sunrise: {
+          name: 'Sunrise Ethiopia',
+          tag: 'Light Roast',
+          description: 'Bright and floral with notes of bergamot, peach, and honey. A washed-process single origin.'
+        },
+        house: {
+          name: 'House Blend No.3',
+          tag: 'Medium Roast',
+          description: 'Our signature everyday blend - chocolate, toasted hazelnut, and a soft caramel finish.'
+        },
+        midnight: {
+          name: 'Midnight Sumatra',
+          tag: 'Dark Roast',
+          description: 'Bold, earthy, and full-bodied with dark cocoa and a low, smoky finish.'
+        }
+      }
     },
     reviews: {
       eyebrow: 'Customer Love',
-      title: 'Loved by Coffee Enthusiasts'
+      title: 'Loved by Coffee Enthusiasts',
+      items: {
+        amelia: {
+          quote: "The House Blend has genuinely replaced my old coffee shop habit. It's rich without being bitter, and it always arrives roasted within the week.",
+          meta: 'Subscriber since 2022'
+        },
+        david: {
+          quote: 'You can genuinely taste the difference in the Sunrise Ethiopia. Bright, fruity, and nothing like the stale bags from the supermarket.',
+          meta: 'Home Barista'
+        }
+      }
     },
     contact: {
       eyebrow: 'Get In Touch',
@@ -48,14 +82,17 @@ export const translations = {
       contact_info: {
         email: 'Email',
         phone: 'Phone',
-        address: 'Address'
+        address: 'Address',
+        street: '123 Coffee Street',
+        city: 'Brew City, BC 12345'
       }
     },
     footer: {
       about: 'Premium small-batch coffee roasted to perfection.',
       quickLinks: 'Quick Links',
       followUs: 'Follow Us',
-      copyright: '© 2024 Bean House. All rights reserved.'
+      copyright: '© 2024 Bean House. All rights reserved.',
+      crafted: 'Crafted with coffee and care'
     }
   },
   ar: {
@@ -79,17 +116,51 @@ export const translations = {
       eyebrow: 'أصلنا',
       title: 'مصنوعة لمحبي القهوة',
       description: 'منذ عام 2018، تعمل بيت القهوة على مهمة لنقل قهوة استثنائية إلى طاولتك. نتشارك مباشرة مع المزارعين، مما يضمن ممارسات التجارة العادلة وأعلى جودة من الحبوب.',
-      signatureText: 'كل فنجان يروي قصة من الحرفية والاستدامة والشغف.'
+      signatureText: 'كل فنجان يروي قصة من الحرفية والاستدامة والشغف.',
+      stats: {
+        years: 'سنوات التحميص',
+        farms: 'مزارع المنشأ',
+        cups: 'فنجان مقدم'
+      },
+      directTrade: 'تجارة مباشرة',
+      sourcing: 'من 14 مزرعة شريكة عبر 3 قارات.'
     },
     products: {
       eyebrow: 'القائمة',
       title: 'مزيجنا',
       viewBtn: 'عرض التفاصيل',
-      addBtn: 'أضف للسلة'
+      addBtn: 'أضف للسلة',
+      items: {
+        sunrise: {
+          name: 'إثيوبيا شروق الشمس',
+          tag: 'تحميص فاتح',
+          description: 'قهوة زاهية وعطرية بنفحات البرغموت والخوخ والعسل، من محصول أحادي مغسول.'
+        },
+        house: {
+          name: 'مزيج البيت رقم 3',
+          tag: 'تحميص متوسط',
+          description: 'مزيجنا اليومي المميز بنفحات الشوكولاتة والبندق المحمص ولمسة كراميل ناعمة.'
+        },
+        midnight: {
+          name: 'سومطرة منتصف الليل',
+          tag: 'تحميص داكن',
+          description: 'قهوة قوية وممتلئة بنكهة الكاكاو الداكن ولمسة مدخنة هادئة.'
+        }
+      }
     },
     reviews: {
       eyebrow: 'حب العملاء',
-      title: 'يحبها عشاق القهوة'
+      title: 'يحبها عشاق القهوة',
+      items: {
+        amelia: {
+          quote: 'لقد استبدل مزيج البيت عادة الذهاب إلى المقهى لديّ بالفعل. مذاقه غني من دون مرارة، ويصل دائمًا محمصًا خلال الأسبوع.',
+          meta: 'مشتركة منذ 2022'
+        },
+        david: {
+          quote: 'يمكنك تذوق الفرق فعلًا في إثيوبيا شروق الشمس. نكهة زاهية وفاكهية، ولا تشبه الأكياس القديمة من المتجر أبدًا.',
+          meta: 'باريستا منزلي'
+        }
+      }
     },
     contact: {
       eyebrow: 'تواصل معنا',
@@ -107,14 +178,17 @@ export const translations = {
       contact_info: {
         email: 'البريد الإلكتروني',
         phone: 'الهاتف',
-        address: 'العنوان'
+        address: 'العنوان',
+        street: '123 شارع القهوة',
+        city: 'مدينة برو، BC 12345'
       }
     },
     footer: {
       about: 'قهوة محمصة حرفية بشكل مثالي.',
       quickLinks: 'روابط سريعة',
       followUs: 'تابعنا',
-      copyright: '© 2024 بيت القهوة. جميع الحقوق محفوظة.'
+      copyright: '© 2024 بيت القهوة. جميع الحقوق محفوظة.',
+      crafted: 'صُنعت بعناية وحب القهوة'
     }
   }
 };

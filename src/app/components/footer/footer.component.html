@@ -41,7 +41,7 @@
         <ul class="contact-list">
           <a href="mailto:hello&#64;beanhouse.com">hello&#64;beanhouse.com</a>
           <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-          <li>123 Coffee Street<br />Brew City, BC 12345</li>
+          <li>{{ t[currentLanguage].contact.contact_info.street }}<br />{{ t[currentLanguage].contact.contact_info.city }}</li>
         </ul>
       </div>
     </div>
@@ -49,7 +49,7 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom">
       <p>{{ t[currentLanguage].footer.copyright.replace('2024', currentYear.toString()) }}</p>
-      <p>Crafted with ☕ and care</p>
+      <p>{{ t[currentLanguage].footer.crafted }}</p>
     </div>
   </div>
 </footer>

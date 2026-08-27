@@ -9,13 +9,13 @@
       @for (review of reviews; track review.name) {
         <div class="review-card reveal" appReveal>
           <p class="quote-mark">"</p>
-          <p class="testimonial">{{ review.quote }}</p>
+          <p class="testimonial">{{ t[currentLanguage].reviews.items[review.key].quote }}</p>
           <div class="stars">★★★★★</div>
           <div class="reviewer">
             <img [src]="review.img" [alt]="review.name" />
             <div>
               <strong>{{ review.name }}</strong>
-              <span>{{ review.meta }}</span>
+              <span>{{ t[currentLanguage].reviews.items[review.key].meta }}</span>
             </div>
           </div>
         </div>

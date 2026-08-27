@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { translations } from '../../i18n/translations';
@@ -18,20 +18,16 @@ type Language = 'en' | 'ar';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   scrolled = false;
   menuOpen = false;
   activeId = 'home';
-  currentLanguage: Language = 'en';
   t = translations;
 
   constructor(private languageService: LanguageService) {}
 
-  ngOnInit(): void {
-    this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.languageService.language$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+  get currentLanguage(): Language {
+    return this.languageService.language();
   }
 
   getLinks(): NavLink[] {
