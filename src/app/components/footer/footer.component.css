@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  background: var(--dark-brown);
+  color: var(--beige);
+}
+
+footer {
+  padding: 70px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+.footer-brand .logo {
+  color: var(--white);
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand .mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--deep-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  color: rgba(245, 230, 211, 0.7);
+  max-width: 320px;
+  font-size: 0.92rem;
+}
+
+h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.contact-list li {
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+  color: rgba(245, 230, 211, 0.85);
+}
+
+.contact-list a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: var(--gold);
+}
+
+.social-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.social-row a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 230, 211, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-row a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.social-row svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--beige);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 230, 211, 0.15);
+  padding-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(245, 230, 211, 0.55);
+}
+
+/* RTL Support */
+[dir="rtl"] .footer-brand .logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom {
+  direction: rtl;
+}

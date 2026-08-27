@@ -1,0 +1,36 @@
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">Menu</p>
+      <h2>Our Blends</h2>
+    </div>
+
+    <div class="product-grid">
+      @for (product of products; track product.name) {
+        <div class="product-card reveal" appReveal>
+          <div class="product-media">
+            <img
+              [src]="product.img"
+              [alt]="product.alt"
+              (error)="onImgError($event)" />
+            <span class="product-tag">{{ product.tag }}</span>
+          </div>
+          <div class="product-body">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+          </div>
+          <div class="product-footer">
+            <span class="price">{{ product.price }}</span>
+            <button
+              class="add-btn"
+              [class.added]="product.added"
+              (click)="addToCart(product)"
+              aria-label="Add to cart">
+              {{ product.added ? '✓' : '+' }}
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

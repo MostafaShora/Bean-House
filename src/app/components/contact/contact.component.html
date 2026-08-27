@@ -1,0 +1,83 @@
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{{ t[currentLanguage].contact.eyebrow }}</p>
+      <h2>{{ t[currentLanguage].contact.title }}</h2>
+      <p>{{ t[currentLanguage].contact.description }}</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- Contact Form -->
+      <form class="contact-form" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="{{ t[currentLanguage].contact.form.name }}"
+            [(ngModel)]="formData.name"
+            name="name"
+            class="form-input"
+            [class.error]="formSubmitted && !formData.name.trim()" />
+          <span class="error-message" *ngIf="formSubmitted && !formData.name.trim()">
+            {{ getErrorMessage('name') }}
+          </span>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="{{ t[currentLanguage].contact.form.email }}"
+            [(ngModel)]="formData.email"
+            name="email"
+            class="form-input"
+            [class.error]="formSubmitted && (!formData.email.trim() || !isValidEmail(formData.email))" />
+          <span class="error-message" *ngIf="formSubmitted && (!formData.email.trim() || !isValidEmail(formData.email))">
+            {{ getErrorMessage('email') }}
+          </span>
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-group">
+          <textarea
+            placeholder="{{ t[currentLanguage].contact.form.message }}"
+            [(ngModel)]="formData.message"
+            name="message"
+            class="form-textarea"
+            [class.error]="formSubmitted && !formData.message.trim()"
+            rows="5"></textarea>
+          <span class="error-message" *ngIf="formSubmitted && !formData.message.trim()">
+            {{ getErrorMessage('message') }}
+          </span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">
+          {{ t[currentLanguage].contact.form.send }}
+        </button>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-item">
+          <h3>{{ t[currentLanguage].contact.contact_info.email }}</h3>
+          <a href="mailto:hello&#64;beanhouse.com">hello&#64;beanhouse.com</a>
+
+        </div>
+        <div class="info-item">
+          <h3>{{ t[currentLanguage].contact.contact_info.phone }}</h3>
+          <a href="tel:+1234567890">+1 (234) 567-890</a>
+        </div>
+        <div class="info-item">
+          <h3>{{ t[currentLanguage].contact.contact_info.address }}</h3>
+          <p>123 Coffee Street<br>Brew City, BC 12345</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" *ngIf="showSuccess">
+      <p>{{ t[currentLanguage].contact.form.success }}</p>
+    </div>
+  </div>
+</section>

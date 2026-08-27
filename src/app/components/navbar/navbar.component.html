@@ -1,0 +1,32 @@
+<header class="nav" [class.scrolled]="scrolled">
+  <div class="container">
+    <a href="#home" class="logo"><span class="mark">B</span>Bean House</a>
+
+    <nav>
+      <ul class="nav-links" [class.open]="menuOpen">
+        @for (link of getLinks(); track link.id) {
+          <li>
+            <a [href]="link.href" [class.active]="activeId === link.id" (click)="closeMenu()">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" (click)="toggleLanguage()" [attr.aria-label]="'Toggle language'">
+        {{ currentLanguage === 'en' ? 'العربية' : 'English' }}
+      </button>
+
+      <button
+        class="nav-toggle"
+        [class.open]="menuOpen"
+        (click)="toggleMenu()"
+        aria-label="Toggle menu"
+        [attr.aria-expanded]="menuOpen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

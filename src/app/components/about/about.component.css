@@ -1,0 +1,145 @@
+.about {
+  background: var(--cream);
+}
+
+.about .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .about .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-text p {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  margin-bottom: 18px;
+  max-width: 520px;
+}
+
+.about-text h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 20px;
+}
+
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  margin-top: 34px;
+}
+
+.about-stats div strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--gold);
+}
+
+.about-stats div span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.about-media {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.about-media .ring-deco {
+  top: -40px;
+  left: -40px;
+  border-color: var(--gold);
+}
+
+.about-media img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.about-media .float-card {
+  position: absolute;
+  bottom: -28px;
+  left: -28px;
+  background: var(--white);
+  padding: 20px 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  z-index: 2;
+  max-width: 220px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.about-media .float-card strong {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--deep-brown);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 520px) {
+  .about-media {
+    margin-left: 16px;
+    margin-right: 4px;
+  }
+
+  .about-media .ring-deco {
+    top: -24px;
+    left: -16px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-media .float-card {
+    left: -12px;
+    bottom: -24px;
+    max-width: 190px;
+    padding: 16px 20px;
+  }
+
+  .about-media img {
+    height: 340px;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .about-media .ring-deco {
+  left: auto;
+  right: -40px;
+}
+
+[dir="rtl"] .about-media .float-card {
+  left: auto;
+  right: -28px;
+}
+
+@media (max-width: 520px) {
+  [dir="rtl"] .about-media {
+    margin-left: 4px;
+    margin-right: 16px;
+  }
+
+  [dir="rtl"] .about-media .ring-deco {
+    left: auto;
+    right: -16px;
+  }
+
+  [dir="rtl"] .about-media .float-card {
+    left: auto;
+    right: -12px;
+  }
+}

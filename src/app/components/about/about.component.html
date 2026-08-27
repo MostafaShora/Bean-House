@@ -1,0 +1,30 @@
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-text reveal" appReveal>
+      <p class="eyebrow">{{ t[currentLanguage].about.eyebrow }}</p>
+      <h2>{{ t[currentLanguage].about.title }}</h2>
+      <p>{{ t[currentLanguage].about.description }}</p>
+      <p>{{ t[currentLanguage].about.signatureText }}</p>
+
+      <div class="about-stats">
+        @for (stat of stats; track stat.label) {
+          <div>
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="about-media reveal" appReveal>
+      <div class="ring-deco"></div>
+      <img
+        src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80"
+        alt="Roaster hand-pouring green coffee beans">
+      <div class="float-card">
+        <strong>Direct Trade</strong>
+        Sourced from 14 partner farms across 3 continents.
+      </div>
+    </div>
+  </div>
+</section>

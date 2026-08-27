@@ -1,0 +1,168 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 80px;
+  background-color: var(--deep-brown);
+  background-image:
+    linear-gradient(180deg, rgba(20, 12, 8, 0.55) 0%, rgba(20, 12, 8, 0.35) 45%, rgba(20, 12, 8, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  max-width: 680px;
+  color: var(--white);
+}
+
+.hero-content .eyebrow {
+  color: var(--gold-soft);
+}
+
+.hero-content .eyebrow::before {
+  background: var(--gold-soft);
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-soft);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+  margin-bottom: 38px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Steam Animation */
+.steam {
+  position: absolute;
+  right: 9%;
+  bottom: 14%;
+  width: 120px;
+  height: 220px;
+  pointer-events: none;
+  opacity: 0.85;
+  display: none;
+}
+
+.steam path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 0;
+  animation: rise 4.5s ease-in-out infinite;
+}
+
+.steam path:nth-child(2) {
+  animation-delay: 0.7s;
+  opacity: 0.7;
+}
+
+.steam path:nth-child(3) {
+  animation-delay: 1.4s;
+  opacity: 0.5;
+}
+
+@keyframes rise {
+  0% {
+    stroke-dashoffset: 60;
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+    transform: translateY(-30px) scaleX(1.15);
+  }
+}
+
+@media (min-width: 900px) {
+  .steam {
+    display: block;
+  }
+}
+
+/* Scroll Cue Animation */
+.scroll-cue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-cue span {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-cue span::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  animation: scrolldown 1.8s ease-in-out infinite;
+}
+
+@keyframes scrolldown {
+  0% {
+    top: -100%;
+  }
+  60% {
+    top: 100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .steam {
+  right: auto;
+  left: 9%;
+}
+
+[dir="rtl"] .scroll-cue {
+  left: 50%;
+  transform: translateX(-50%);
+}
